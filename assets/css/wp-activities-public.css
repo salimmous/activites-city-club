@@ -1,0 +1,738 @@
+/**
+ * Public CSS for WP Activities plugin
+ * Includes Style 1 (Single Row) and Style 2 (Zumba Card Grid)
+ *
+ * @package    WP_Activities
+ */
+
+/* ==========================================================================
+   Style 1: Single Row Layout with Gallery (Shortcode: [wp_activities])
+   ========================================================================== */
+
+/* --- General & Container --- */
+.wp-activities-container.style-1 {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 40px auto; /* Add top/bottom margin */
+    padding: 20px;
+    font-family: 'Arial', sans-serif; /* Or specific font from design */
+    position: relative;
+    color: #333;
+}
+
+/* --- Header Title & Subtitle --- */
+.wp-activities-container.style-1 .wp-activities-title {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.wp-activities-container.style-1 .wp-activities-subtitle {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #666;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Categories Navigation --- */
+.wp-activities-container.style-1 .wp-activities-categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    gap: 15px;
+}
+
+.wp-activities-container.style-1 .wp-activities-category-link {
+    display: inline-block;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: #555;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.wp-activities-container.style-1 .wp-activities-category-link:hover {
+    background-color: #f5f5f5;
+    border-color: #aaa;
+    color: #333;
+}
+
+.wp-activities-container.style-1 .wp-activities-category-link.active {
+    background-color: #ff6600;
+    color: white;
+    border-color: #ff6600;
+    font-weight: bold;
+}
+
+/* --- Activities List --- */
+.wp-activities-container.style-1 .wp-activities-list-wrapper {
+    /* No special wrapper styles needed */
+}
+
+.wp-activities-container.style-1 .wp-activities-list {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 40px; /* Gap between cards */
+}
+
+/* --- Activity Item --- */
+.wp-activities-item {
+    background-color: var(--activity-bg-color, #b22222); /* Default red */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    color: white;
+    min-height: 350px;
+    transition: transform 0.3s ease;
+}
+
+.wp-activities-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.wp-activities-item.layout-odd {
+    flex-direction: row; /* Content | Image */
+}
+
+/* --- Popular Badge --- */
+.wp-activities-popular {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #ff6600;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10; /* Ensure it's above the image */
+    text-transform: uppercase;
+}
+
+/* --- Activity Content Column --- */
+.wp-activities-item-content {
+    width: 50%;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.wp-activities-item-title {
+    font-size: 32px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.2;
+    padding-left: 20px;
+    position: relative;
+}
+.wp-activities-item-title a {
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none;
+}
+
+.wp-activities-item-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    bottom: 5px;
+    width: 5px;
+    background-color: #ff6600;
+    border-radius: 3px;
+}
+
+.wp-activities-item-description {
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.9;
+    flex-grow: 1;
+    max-height: 100px;
+    overflow: hidden;
+    padding-left: 20px;
+}
+.wp-activities-item-description p {
+    margin: 0;
+}
+
+/* --- Activity Meta --- */
+.wp-activities-item-meta {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 35px;
+    font-size: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 20px;
+}
+
+.wp-activities-duration,
+.wp-activities-level,
+.wp-activities-certified {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wp-activities-item-meta i {
+    font-size: 20px;
+    opacity: 0.9;
+    color: #ffccaa;
+}
+.wp-activities-item-meta span {
+    font-weight: 500;
+}
+
+/* --- Activity Actions (Buttons & Dots) --- */
+.wp-activities-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto;
+    padding-left: 20px;
+}
+
+.wp-activities-button {
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    min-width: 180px;
+}
+
+.wp-activities-button.button-primary {
+    background-color: #ff6600;
+    color: white;
+    border-color: #ff6600;
+}
+
+.wp-activities-button.button-primary:hover {
+    background-color: #e55c00;
+    border-color: #e55c00;
+}
+
+.wp-activities-button.button-secondary {
+    background-color: white;
+    color: var(--activity-bg-color, #b22222);
+    border-color: white;
+}
+.wp-activities-button.button-secondary.is-placeholder {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: default;
+    pointer-events: none;
+}
+
+.wp-activities-button.button-secondary:not(.is-placeholder):hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--activity-bg-color, #b22222);
+}
+
+/* --- Content Slider Dots (REMOVED - Only image dots needed) --- */
+.wp-activities-content-slider-dots {
+    display: none; /* Hide content dots */
+}
+
+/* --- General Dot Styles (used by image slider) --- */
+.wp-activities-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- Activity Image Column --- */
+.wp-activities-item-image {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 8px 8px 0;
+}
+
+/* --- Image Slider --- */
+.wp-activities-image-slider-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Hide non-active slides */
+}
+
+.wp-activities-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out; /* Fade transition */
+    z-index: 1; /* Base level for slides */
+}
+
+.wp-activities-slide.active {
+    opacity: 1;
+    z-index: 2; /* Active slide on top */
+}
+
+.wp-activities-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease; /* Keep hover zoom */
+}
+
+.wp-activities-item:hover .wp-activities-slide.active img {
+    transform: scale(1.05);
+}
+
+/* --- Image Overlay --- */
+.wp-activities-item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    text-align: center;
+    opacity: 1;
+    transition: background-color 0.3s ease;
+    z-index: 5; /* Ensure overlay is above slides */
+}
+
+.wp-activities-overlay-title {
+    color: white;
+    font-size: 42px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* --- Image Navigation Arrows --- */
+.wp-activities-img-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 6; /* Above overlay */
+    transition: background 0.3s ease;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+.wp-activities-item-image:hover .wp-activities-img-nav {
+    opacity: 1;
+}
+
+.wp-activities-img-nav.prev { left: 15px; }
+.wp-activities-img-nav.next { right: 15px; }
+.wp-activities-img-nav:hover { background: rgba(0, 0, 0, 0.7); }
+
+/* --- Image Slider Dots --- */
+.wp-activities-image-slider-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 6; /* Above overlay */
+}
+/* Active state for image dots */
+.wp-activities-image-slider-dots .wp-activities-dot.active {
+     background-color: #ff6600;
+     border-color: #ff6600;
+}
+
+
+/* --- Responsive Adjustments (Style 1) --- */
+@media (max-width: 992px) {
+    .wp-activities-item {
+        flex-direction: column !important;
+        min-height: auto;
+    }
+    .wp-activities-item-content,
+    .wp-activities-item-image {
+        width: 100%;
+    }
+    .wp-activities-item-image {
+        height: 300px;
+        border-radius: 0 0 8px 8px; /* Adjust rounding when stacked */
+    }
+     .wp-activities-popular { top: 15px; right: 15px; } /* Position relative to item */
+    .wp-activities-item-content { padding: 30px; }
+    .wp-activities-item-title { font-size: 28px; }
+     .wp-activities-item-title::before { top: 4px; bottom: 4px; }
+    .wp-activities-overlay-title { font-size: 36px; }
+}
+
+@media (max-width: 768px) {
+    .wp-activities-item-content { padding: 25px; }
+    .wp-activities-item-title { font-size: 24px; padding-left: 15px; }
+     .wp-activities-item-title::before { width: 4px; }
+     .wp-activities-item-description,
+     .wp-activities-item-meta,
+     .wp-activities-item-actions { padding-left: 15px; }
+    .wp-activities-overlay-title { font-size: 28px; }
+    .wp-activities-item-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+    /* Content dots are hidden, no need to style */
+    .wp-activities-container.style-1 .wp-activities-title { font-size: 36px; }
+    .wp-activities-container.style-1 .wp-activities-subtitle { font-size: 16px; }
+    .wp-activities-container.style-1 .wp-activities-category-link { padding: 8px 20px; font-size: 13px; }
+}
+
+@media (max-width: 576px) {
+    .wp-activities-item-content { padding: 20px; }
+    .wp-activities-item-title { font-size: 22px; }
+     .wp-activities-overlay-title { font-size: 24px; }
+    .wp-activities-item-meta { gap: 15px; margin-bottom: 20px; font-size: 13px; }
+     .wp-activities-item-meta i { font-size: 18px; }
+     .wp-activities-button { padding: 10px 20px; font-size: 13px; min-width: auto; }
+     .wp-activities-img-nav { width: 35px; height: 35px; font-size: 16px; }
+     .wp-activities-img-nav.prev { left: 10px; }
+     .wp-activities-img-nav.next { right: 10px; }
+     .wp-activities-dot { width: 10px; height: 10px; }
+     .wp-activities-image-slider-dots .wp-activities-dot { width: 10px; height: 10px; }
+     .wp-activities-image-slider-dots { bottom: 15px; gap: 8px; }
+}
+
+
+/* ==========================================================================
+   Style 2: Zumba Card Grid Layout (Shortcode: [wp_activities_style_2])
+   ========================================================================== */
+
+.wp-activities-style-2-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif; /* Or specific font */
+}
+
+.wp-activities-style-2-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.wp-activities-style-2-header-content {
+    flex-grow: 1;
+}
+
+
+.wp-activities-style-2-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.wp-activities-style-2-subtitle {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0;
+}
+
+.wp-activities-style-2-view-all {
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.wp-activities-style-2-view-all:hover {
+    color: #e55c00;
+}
+
+.wp-activities-style-2-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the tabs */
+    margin-bottom: 40px;
+    gap: 10px;
+}
+
+/* Style 2 Category Filter Pills */
+.wp-activities-style-2-category-link {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background-color: #f5f5f5;
+    font-size: 14px;
+}
+
+.wp-activities-style-2-category-link:hover {
+    background-color: #e8e8e8;
+    border-color: #ccc;
+}
+
+.wp-activities-style-2-category-link.active {
+    background-color: #ff6600;
+    color: white;
+    border-color: #ff6600;
+    font-weight: bold;
+}
+
+/* Hide Slider Navigation Elements */
+.wp-activities-style-2-slider-container,
+.wp-activities-style-2-nav-prev,
+.wp-activities-style-2-nav-next,
+.wp-activities-style-2-pagination-indicators {
+    display: none;
+}
+
+/* Grid List for Style 2 */
+.wp-activities-style-2-list {
+    display: grid;
+    /* Default: 3 columns on large screens */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; /* Gap between cards */
+}
+
+/* Style 2 Item Card - Zumba Style */
+.wp-activities-style-2-item {
+    background-color: white;
+    border-radius: 12px; /* More rounded corners */
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* Slightly stronger shadow */
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.wp-activities-style-2-item:hover {
+    transform: translateY(-6px); /* Slightly more lift */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Style 2 Image Container */
+.wp-activities-style-2-item-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 220px; /* Fixed height */
+}
+.wp-activities-style-2-image-link {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wp-activities-style-2-item-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.wp-activities-style-2-item:hover .wp-activities-style-2-item-image {
+    transform: scale(1.05);
+}
+
+/* Style 2 Badges - Zumba Style */
+.wp-activities-style-2-category-badge,
+.wp-activities-style-2-popular-badge {
+    position: absolute;
+    top: 15px;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker background */
+    color: white;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 500; /* Normal weight */
+    border-radius: 20px; /* Pill shape */
+    z-index: 2;
+    text-transform: none; /* No uppercase */
+}
+.wp-activities-style-2-category-badge {
+    right: 15px;
+}
+.wp-activities-style-2-popular-badge {
+    left: 15px;
+    background-color: #ff6600; /* Orange for popular */
+}
+
+
+/* Style 2 Content - Zumba Style */
+.wp-activities-style-2-item-content {
+    padding: 20px; /* Standard padding */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #f8f9fa; /* Very light grey background for content */
+}
+
+.wp-activities-style-2-item-title {
+    font-size: 22px; /* Larger title */
+    font-weight: bold;
+    margin: 0 0 10px;
+    color: #333;
+    line-height: 1.3;
+}
+.wp-activities-style-2-item-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wp-activities-style-2-item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px; /* Row and column gap */
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #666;
+}
+
+.wp-activities-style-2-item-duration,
+.wp-activities-style-2-item-level,
+.wp-activities-style-2-item-certified {
+    display: flex;
+    align-items: center;
+}
+
+.wp-activities-style-2-item-meta .dashicons {
+    margin-right: 5px;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: #888;
+}
+
+.wp-activities-style-2-item-description {
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    flex-grow: 1; /* Push button down */
+}
+.wp-activities-style-2-item-description p {
+    margin: 0;
+}
+
+.wp-activities-style-2-item-link {
+    display: inline-block;
+    padding: 10px 25px; /* More padding */
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+    margin-top: auto; /* Push to bottom */
+}
+
+.wp-activities-style-2-item-link:hover {
+    background-color: #e55c00;
+}
+
+/* --- Responsive adjustments (Style 2 Grid - Zumba Card) --- */
+@media (max-width: 1024px) {
+    .wp-activities-style-2-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wp-activities-style-2-list {
+        grid-template-columns: repeat(2, 1fr); /* Still 2 columns */
+        gap: 20px;
+    }
+    .wp-activities-style-2-title {
+        font-size: 28px;
+    }
+    .wp-activities-style-2-subtitle {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .wp-activities-style-2-list {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        gap: 25px;
+    }
+    .wp-activities-style-2-categories {
+        justify-content: center;
+    }
+    .wp-activities-style-2-header {
+        text-align: center;
+        justify-content: center; /* Center header content */
+    }
+    .wp-activities-style-2-view-all {
+        margin-top: 10px; /* Add space when wrapped */
+    }
+    .wp-activities-style-2-item-title {
+        font-size: 20px;
+    }
+}

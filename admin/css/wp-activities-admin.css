@@ -1,0 +1,144 @@
+/**
+ * Admin CSS for WP Activities plugin
+ * Added styles for Media Library gallery preview.
+ *
+ * @package    WP_Activities
+ */
+
+/* Activity details form */
+.activity-details-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.activity-detail-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+.activity-detail-field:last-child {
+    border-bottom: none;
+}
+
+
+.activity-detail-field label {
+    font-weight: bold;
+    display: block; /* Ensure label takes full width */
+    margin-bottom: 3px;
+}
+
+.activity-detail-field input[type="number"],
+.activity-detail-field input[type="text"],
+.activity-detail-field input[type="url"],
+.activity-detail-field select {
+    width: 100%;
+    max-width: 400px; /* Adjust max width */
+}
+
+.activity-detail-field input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.activity-detail-field .description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+/* Settings page */
+.wp-activities-settings-page {
+    max-width: 800px;
+    margin: 20px 0;
+}
+
+.wp-activities-settings-page h1 {
+    margin-bottom: 20px;
+}
+
+.wp-activities-settings-section {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.wp-activities-settings-section h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Media Library Gallery Styles */
+.activity-gallery-preview-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    min-height: 80px; /* Ensure drop area is visible */
+}
+
+.gallery-image-preview {
+    position: relative;
+    border: 1px solid #ddd;
+    background: white;
+    padding: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    width: 80px; /* Thumbnail size */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.gallery-image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.gallery-image-preview .remove-gallery-image {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #cc0000;
+    color: white;
+    border: 1px solid #a00000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 18px; /* Adjust for vertical centering */
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+.gallery-image-preview .remove-gallery-image:hover {
+    background: #ff0000;
+}
+
+/* Sortable placeholder style */
+.gallery-sortable-placeholder {
+    border: 2px dashed #ccc;
+    background-color: #f0f0f0;
+    width: 80px;
+    height: 80px;
+    box-sizing: border-box; /* Include border in size */
+}
+
+#add_gallery_images_button {
+    margin-top: 5px;
+}
